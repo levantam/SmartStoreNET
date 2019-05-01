@@ -152,6 +152,9 @@
     <Compile Include="Mapping\Media\MediaStorageMap.cs" />
     <Compile Include="Mapping\Messages\QueuedEmailAttachmentMap.cs" />
     <Compile Include="Mapping\Payments\PaymentMethodMap.cs" />
+    <Compile Include="Mapping\Reviews\ReviewerMap.cs" />
+    <Compile Include="Mapping\Reviews\ReviewImageMap.cs" />
+    <Compile Include="Mapping\Reviews\ReviewMap.cs" />
     <Compile Include="Mapping\Tasks\ScheduleTaskHistoryMap.cs" />
     <Compile Include="Migrations\201403112331027_Initial.cs" />
     <Compile Include="Migrations\201403112331027_Initial.Designer.cs">
@@ -660,6 +663,18 @@
     <Compile Include="Migrations\201904110735029_Menus.cs" />
     <Compile Include="Migrations\201904110735029_Menus.Designer.cs">
       <DependentUpon>201904110735029_Menus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905010349545_addTableReview.cs" />
+    <Compile Include="Migrations\201905010349545_addTableReview.Designer.cs">
+      <DependentUpon>201905010349545_addTableReview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905010426151_addTablesReviewerProduct.cs" />
+    <Compile Include="Migrations\201905010426151_addTablesReviewerProduct.Designer.cs">
+      <DependentUpon>201905010426151_addTablesReviewerProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905010828396_changeTableName.cs" />
+    <Compile Include="Migrations\201905010828396_changeTableName.Designer.cs">
+      <DependentUpon>201905010828396_changeTableName.cs</DependentUpon>
     </Compile>
     <Compile Include="ObjectContextBase.SaveChanges.cs" />
     <Compile Include="Setup\Builder\ActivityLogTypeMigrator.cs" />
@@ -1184,6 +1199,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904110735029_Menus.resx">
       <DependentUpon>201904110735029_Menus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905010349545_addTableReview.resx">
+      <DependentUpon>201905010349545_addTableReview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905010426151_addTablesReviewerProduct.resx">
+      <DependentUpon>201905010426151_addTablesReviewerProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905010828396_changeTableName.resx">
+      <DependentUpon>201905010828396_changeTableName.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sql\Indexes.sql" />
     <EmbeddedResource Include="Sql\StoredProcedures.sql" />

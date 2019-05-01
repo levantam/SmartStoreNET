@@ -1,0 +1,14 @@
+﻿@model IList<ReviewModel>
+
+@using SmartStore.Web.Models.Reviews;
+
+@{
+    ViewBag.Title = "TopReviews";
+    Layout = "";
+}
+
+@foreach (var review in Model)
+{
+    Html.RenderPartial("ReviewItemThumbnail", Model);
+}
+

@@ -64,6 +64,7 @@ using SmartStore.Services.Orders;
 using SmartStore.Services.Payments;
 using SmartStore.Services.Pdf;
 using SmartStore.Services.Polls;
+using SmartStore.Services.Reviews;
 using SmartStore.Services.Search;
 using SmartStore.Services.Search.Extensions;
 using SmartStore.Services.Search.Modelling;
@@ -272,7 +273,10 @@ namespace SmartStore.Web.Framework
 			builder.RegisterType<OpenAuthenticationService>().As<IOpenAuthenticationService>().InstancePerRequest();
 
 			builder.RegisterType<CommonServices>().As<ICommonServices>().InstancePerRequest();
-		}
+
+            // Custom by IRev
+            builder.RegisterType<ReviewService>().As<IReviewService>().InstancePerRequest();
+        }
 
 		protected override void AttachToComponentRegistration(IComponentRegistry componentRegistry, IComponentRegistration registration)
 		{

@@ -8,6 +8,7 @@ using SmartStore.Core.Domain.Directory;
 using SmartStore.Core.Domain.Discounts;
 using SmartStore.Core.Domain.Localization;
 using SmartStore.Core.Domain.Media;
+using SmartStore.Core.Domain.Reviews;
 using SmartStore.Core.Domain.Security;
 using SmartStore.Core.Domain.Seo;
 using SmartStore.Core.Domain.Stores;
@@ -54,6 +55,8 @@ namespace SmartStore.Core.Domain.Catalog
 		private ICollection<TierPrice> _tierPrices;
 		private ICollection<Discount> _appliedDiscounts;
 		private ICollection<ProductBundleItem> _productBundleItems;
+        private ICollection<Review> _reviews;
+ 
         
         private int _stockQuantity;
         private int _backorderModeId;
@@ -1136,5 +1139,15 @@ namespace SmartStore.Core.Domain.Catalog
 			get { return _productBundleItems ?? (_productBundleItems = new HashSet<ProductBundleItem>()); }
 			protected set { _productBundleItems = value; }
 		}
+
+        /// <summary>
+        /// Gets or sets the collection of Reviews
+        /// </summary>
+		[DataMember]
+        public virtual ICollection<Review> Reviews
+        {
+            get { return _reviews ?? (_reviews = new HashSet<Review>()); }
+            protected set { _reviews = value; }
+        }
     }
 }

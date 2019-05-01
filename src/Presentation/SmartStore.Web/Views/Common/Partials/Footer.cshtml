@@ -43,38 +43,33 @@
 }
 
 @{ Html.RenderWidget("footer_top"); }
-
-@if (Model.ShowSocialLinks && socialLinks.Any())
-{
-	<div class="footer-social-wrapper">
-		<div class="container footer-social">
-			<div class="row">
-				<div class="col text-center">
-					@foreach (var link in socialLinks)
-					{
-						<a href="@link.Item1" target="_blank" class="btn x-btn-@(invserseFooter ? "clear" : "secondary") btn-circle btn-social btn-brand-@link.Item2">
-							<i class="fab fa-@link.Item2"></i>
-						</a>
-					}
-				</div>
-			</div>
-		</div>
-	</div>
-}
-
 <div class="footer-main-wrapper">
 	<div class="container footer-main">
 		<div class="row sm-gutters">
 
 			<div class="col-md-3">
-				<nav class="footer-links nav-collapsible">
+				@*<nav class="footer-links nav-collapsible">
 					<h4 class="footer-title nav-toggler collapsed" data-toggle="collapse" data-target="#footer-info" aria-controls="footer-info" aria-expanded="false">
                         @T("Footer.Info")
                     </h4>
 					<div class="collapse nav-collapse" id="footer-info">
                         @{ Html.SmartStore().Menu().Name("FooterInformation").Template("LinkList").Render(); }
 					</div>
-				</nav>
+				</nav>*@
+                <h4>© 2017-2018</h4>
+                @if (Model.ShowSocialLinks && socialLinks.Any())
+                {
+                <div class="row">
+                    <div class="col">
+                        @foreach (var link in socialLinks)
+                        {
+                            <a style="border: none" href="@link.Item1" target="_blank" class="btn x-btn-@(invserseFooter ? "clear" : "secondary") btn-circle btn-social btn-brand-@link.Item2">
+                                <i class="fab fa-@link.Item2"></i>
+                            </a>
+                        }
+                    </div>
+                </div>
+                }
 			</div>
 
 			<div class="col-md-3">
@@ -173,7 +168,7 @@
 	<div class="container footer-bottom">
 		<div class="row sm-gutters">
 			
-			@if (Model.ShowLegalInfo)
+			@*@if (Model.ShowLegalInfo)
 			{
 				<div class="col pb-1 pb-sm-0">
 					@Html.Raw(Model.LegalInfo)
@@ -185,7 +180,7 @@
 				<div class="col-12 col-sm-auto pb-1 pb-sm-0 text-sm-center">
 					@Html.Raw(Model.SmartStoreHint)
 				</div>
-			}
+			}*@
 
 			<div class="col text-sm-right">
 				@T("Content.CopyrightNotice", DateTime.Now.Year.ToString(), Model.StoreName)

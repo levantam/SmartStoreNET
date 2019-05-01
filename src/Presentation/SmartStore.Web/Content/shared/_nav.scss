@@ -28,7 +28,7 @@
 	.nav-link {
 		color: $mtab-color;
 		text-transform: $mtab-text-transform;
-		font-weight: $mtab-font-weight;
+		/*font-weight: $mtab-font-weight;*/
 		font-size: 0.9375rem;
 		text-align: center;
 		position: relative;
@@ -193,7 +193,7 @@
             position: relative;
             display: block; 
             text-transform: none;
-            font-weight: $font-weight-medium;
+            /*font-weight: $font-weight-medium;*/
             text-align: left;
             color: $list-group-action-color !important;
             background-color: $list-group-bg;

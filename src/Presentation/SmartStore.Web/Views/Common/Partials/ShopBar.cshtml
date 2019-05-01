@@ -12,7 +12,7 @@
 		</div>
 
 		<!-- SEARCH -->
-		<div class="shopbar-col shopbar-search">
+		<div class="shopbar-col shopbar-search" style="max-width: 500px;">
 			@{
 				Html.RenderAction("SearchBox", "Search");
 			}
@@ -21,6 +21,6 @@
 
 	<div class="shopbar-col-group shopbar-col-group-tools">
 		<!-- TOOLS -->
-		@{ Html.RenderPartial("ShopBar.Tools", Model); }
+		@*@{ Html.RenderPartial("ShopBar.Tools", Model); }*@
 	</div>
 </div>

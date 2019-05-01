@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using SmartStore.Core.Domain.Common;
 using SmartStore.Core.Domain.Forums;
 using SmartStore.Core.Domain.Orders;
+using SmartStore.Core.Domain.Reviews;
 
 namespace SmartStore.Core.Domain.Customers
 {

@@ -22,6 +22,7 @@ using SmartStore.Core.Domain.News;
 using SmartStore.Core.Domain.Orders;
 using SmartStore.Core.Domain.Payments;
 using SmartStore.Core.Domain.Polls;
+using SmartStore.Core.Domain.Reviews;
 using SmartStore.Core.Domain.Security;
 using SmartStore.Core.Domain.Seo;
 using SmartStore.Core.Domain.Shipping;
@@ -13383,9 +13384,142 @@ namespace SmartStore.Data.Setup
 			return entities;
 		}
 
-		#region Alterations
+        public IList<Review> Reviews()
+        {
+            var result = new List<Review>()
+            {
+                // Dave Lee
+                new Review()
+                {
 
-		protected virtual void Alter(IList<MeasureDimension> entities)
+                    Name = "iPhone XR Review: No Need to Panic!",
+                    Cover = "https://img.youtube.com/vi/3mQh7mFgeBc/maxresdefault.jpg",
+                    Thumbnail = "https://img.youtube.com/vi/3mQh7mFgeBc/mqdefault.jpg",
+                    VideoUrl = "https://www.youtube.com/watch?v=3mQh7mFgeBc"
+                },
+                new Review()
+                {
+                    Cover = "https://img.youtube.com/vi/G7LVgdfCNOw/maxresdefault.jpg",
+                    Name = "The Phone of the Year Is Now $500",
+                    Thumbnail = "https://img.youtube.com/vi/G7LVgdfCNOw/mqdefault.jpg",
+                    VideoUrl = "https://www.youtube.com/watch?v=G7LVgdfCNOw"
+                 },
+                new Review()
+                {
+                    Cover = "https://img.youtube.com/vi/tSRfYteappo/maxresdefault.jpg",
+                    Name = "OnePlus 6T Review - REAL Changes",
+                    Thumbnail = "https://img.youtube.com/vi/tSRfYteappo/mqdefault.jpg",
+                    VideoUrl = "https://img.youtube.com/vi/tSRfYteappo/mqdefault.jpg"
+                 },
+                new Review()
+                {
+                    Cover = "https://img.youtube.com/vi/BUisXF5_TCU/maxresdefault.jpg",
+                    Name = "Pixel 3 XL - The Notch Is Real",
+                    Thumbnail = "https://img.youtube.com/vi/BUisXF5_TCU/mqdefault.jpg",
+                    VideoUrl = "https://www.youtube.com/watch?v=BUisXF5_TCU"
+                 },
+                new Review()
+                {
+                    Cover = "https://img.youtube.com/vi/lTTOaXffYZc/maxresdefault.jpg",
+                    Name = "LG V40 - Are 5 Cameras Useful?",
+                    Thumbnail = "https://img.youtube.com/vi/lTTOaXffYZc/mqdefault.jpg",
+                    VideoUrl = "https://www.youtube.com/watch?v=lTTOaXffYZc"
+                 },new Review()
+                {
+                    Cover = "https://img.youtube.com/vi/qg5HeTGSv3I/maxresdefault.jpg",
+                    Name = "iPhone XS Max - I’m not Switching",
+                    Thumbnail = "https://img.youtube.com/vi/qg5HeTGSv3I/mqdefault.jpg",
+                    VideoUrl = "https://www.youtube.com/watch?v=qg5HeTGSv3I"
+                 },
+                new Review(){
+                    Cover = "https://img.youtube.com/vi/ujws3_SLMPk/maxresdefault.jpg",
+                    Name = "This Is the OnePlus 6... I Think.",
+                    Thumbnail = "https://img.youtube.com/vi/ujws3_SLMPk/mqdefault.jpg",
+                    VideoUrl = "https://www.youtube.com/watch?v=ujws3_SLMPk"
+                 },
+                new Review(){
+                    Cover = "https://img.youtube.com/vi/ZADtgM56wvE/maxresdefault.jpg",
+                    Name = "Google Pixel 2 XL + PixelBook - First Impressions!",
+                    Thumbnail = "https://img.youtube.com/vi/ZADtgM56wvE/mqdefault.jpg",
+                    VideoUrl = "https://www.youtube.com/watch?v=ZADtgM56wvE"
+                 },
+                new Review(){
+                    Cover = "https://img.youtube.com/vi/ZADtgM56wvE/maxresdefault.jpg",
+                    Name = "Google Pixel 2 XL + PixelBook - First Impressions!",
+                    Thumbnail = "https://img.youtube.com/vi/ZADtgM56wvE/mqdefault.jpg",
+                    VideoUrl = "https://www.youtube.com/watch?v=ZADtgM56wvE"
+                 },
+                new Review(){
+                    Cover = "https://img.youtube.com/vi/3C18M-bsmxY/maxresdefault.jpg",
+                    Name = "ASUS ZenFone 2 Review - Can it beat the 2015 Moto G?",
+                    Thumbnail = "https://img.youtube.com/vi/3C18M-bsmxY/mqdefault.jpg",
+                    VideoUrl = "https://www.youtube.com/watch?v=3C18M-bsmxY"
+                 },
+                //
+                //
+                //Marques Brownlee
+                new Review(){
+                    Cover = "https://img.youtube.com/vi/ZVoaNzRo0uo/maxresdefault.jpg",
+                    Name = "The Truth About the Pocophone F1!",
+                    Thumbnail = "https://img.youtube.com/vi/ZVoaNzRo0uo/mqdefault.jpg",
+                    VideoUrl = "https://www.youtube.com/watch?v=ZVoaNzRo0uo"
+                 },
+                new Review(){
+                    Cover = "https://img.youtube.com/vi/Lg9N8XAZ6u4/maxresdefault.jpg",
+                    Name = "Pixel 3 XL Second Impression: Notch City!",
+                    Thumbnail = "https://img.youtube.com/vi/Lg9N8XAZ6u4/mqdefault.jpg",
+                    VideoUrl = "https://www.youtube.com/watch?v=Lg9N8XAZ6u4"
+                 },
+                new Review(){
+                    Cover = "https://img.youtube.com/vi/GSWOs4_etoE/maxresdefault.jpg",
+                    Name = "iPhone Xs and iPhone Xs Max Impressions!",
+                    Thumbnail = "https://img.youtube.com/vi/GSWOs4_etoE/mqdefault.jpg",
+                    VideoUrl = "https://www.youtube.com/watch?v=GSWOs4_etoE"
+                 },
+                new Review(){
+                    Cover = "https://img.youtube.com/vi/9AxYQOX5_FM/maxresdefault.jpg",
+                    Name = "Samsung Galaxy Note 9 Impressions: Underrated!",
+                    Thumbnail = "https://img.youtube.com/vi/9AxYQOX5_FM/mqdefault.jpg",
+                    VideoUrl = "https://www.youtube.com/watch?v=9AxYQOX5_FM"
+                 },
+                new Review(){
+                    Cover = "https://img.youtube.com/vi/ThkMi9fkdEc/maxresdefault.jpg",
+                    Name = "Let's Talk About Smartphone Chins!",
+                    Thumbnail = "https://img.youtube.com/vi/ThkMi9fkdEc/mqdefault.jpg",
+                    VideoUrl = "https://www.youtube.com/watch?v=ThkMi9fkdEc"
+                 },
+                new Review(){
+                    Cover = "https://img.youtube.com/vi/F0rYqvRk9r8/maxresdefault.jpg",
+                    Name = "OnePlus 6 Impressions!",
+                    Thumbnail = "https://img.youtube.com/vi/F0rYqvRk9r8/mqdefault.jpg",
+                    VideoUrl = "https://www.youtube.com/watch?v=F0rYqvRk9r8"
+                 }
+            };
+
+            // default properties for all data
+            foreach (var item in result)
+            {
+                item.CreatedDate = DateTime.Now;
+                item.Description = "Marc talked about the process of learning a foreign language and the different levels of fluency. He will show that there is a higher realm of language proficiency and explain what it takes to reach this “native” point where the benefits far surpass mere communication skills. Marc’s passion is the study of languages, their manifestation in local dialects, as well as their expression in poetry and folkloric song. He has acquired a near-native proficiency in six languages and their sub-forms and has given various musical performances. This talk was given at a TEDx event using the TED conference format but independently organized by a local community. Learn more at ";
+                item.IsActive = true;
+                item.IsDelete = false;
+                item.IsHighlight = true;
+                item.IsPremium = true;
+                item.ShortDescription = "Marc talked about the process of learning a foreign language and the different levels of fluency. He will show that there is a higher realm of language proficiency and explain what it takes to reach this “native” point where the benefits far surpass mere communication skills.";
+                item.Rating = 5;
+                item.ShortUrl = "";
+                item.UpdatedDate = DateTime.Now;
+                item.Url = "";
+            }
+            var entities = result;
+
+            this.Alter(entities);
+            return entities;
+        }
+
+        #region Alterations
+
+        protected virtual void Alter(IList<MeasureDimension> entities)
 		{
 		}
 
@@ -13573,13 +13707,17 @@ namespace SmartStore.Data.Setup
 		{
 		}
 
-		#endregion Alterations
+        protected virtual void Alter(IList<Review> entity)
+        {
+        }
 
-		#endregion Sample data creators
+        #endregion Alterations
 
-		#region Helpers
+        #endregion Sample data creators
 
-		protected SmartObjectContext DbContext
+        #region Helpers
+
+        protected SmartObjectContext DbContext
 		{
 			get
 			{
