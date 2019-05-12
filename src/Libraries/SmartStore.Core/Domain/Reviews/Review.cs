@@ -1,7 +1,9 @@
 ﻿using SmartStore.Core.Domain.Catalog;
+using SmartStore.Core.Domain.Localization;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 
 namespace SmartStore.Core.Domain.Reviews
@@ -14,9 +16,9 @@ namespace SmartStore.Core.Domain.Reviews
             IsDelete = false;
             IsActive = true;
         }
-
         private Product _product;
         private Reviewer _reviewer;
+        private int _reviewerId;
         private ICollection<ReviewImage> _reviewImages;
 
         [DataMember]
@@ -53,9 +55,11 @@ namespace SmartStore.Core.Domain.Reviews
         public int Rating { get; set; }
 
         [DataMember]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime CreatedDate { get; set; }
 
         [DataMember]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime UpdatedDate { get; set; }
 
         [DataMember]
@@ -68,21 +72,24 @@ namespace SmartStore.Core.Domain.Reviews
         public Product Product
         {
             get { return _product ?? (_product = new Product()); }
-            protected set { _product = value; }
+            set { _product = value; }
         }
 
         [DataMember]
         public Reviewer Reviewer
         {
             get { return _reviewer ?? (_reviewer = new Reviewer()); }
-            protected set { _reviewer = value; }
+            set { _reviewer = value; }
         }
 
         [DataMember]
         public virtual ICollection<ReviewImage> ReviewImages
         {
             get { return _reviewImages ?? (_reviewImages = new HashSet<ReviewImage>()); }
-            protected set { _reviewImages = value; }
+            set { _reviewImages = value; }
         }
+
+        [DataMember]
+        public virtual Language Language { get; set; }
     }
 }

@@ -6,4 +6,99 @@
 @{
     Layout = "";
 }
-<i>review item</i>
+<div>
+    <div class="card main-review-item">
+        <div class="image-wrapper" data-toggle="modal" data-backdrop="static" data-target="#detail-@Model.Id">
+            <div class="wrapper-cover">
+                <i class="fas fa-eye"></i>
+            </div>
+            <img class="card-img-top review-image lazy" alt="" src="https://via.placeholder.com/500x300?text='@Model.Name'" data-src="@Model.Thumbnail" />
+            @*<img class="card-img-top review-image" src="@Model.Thumbnail" alt="" />*@
+        </div>
+        <div class="card-body review-body">
+            <a href="/review/detail/@Model.Id"><h6 class="review-item-name">@Model.Name</h6></a>
+            <div class="row review-item-footer">
+                <div class="col-md-6">
+                    <div>
+                        <img src="@Model.Reviewer.Avatar" width="16" />
+                        <span>@Model.Reviewer.ChannelName </span>
+                    </div>
+                </div>
+                <div class="col-md-6 text-right">
+                    <span>5 viewers</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade modal-quickview " id="detail-@Model.Id" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{this.review.name}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {this.state.openQuickView &&
+                <div class="modal-body" style={{ minHeight: this.modalHeight }}>
+                    <butto type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </butto>
+                    <div class="row">
+                            <div class="col-md-9">
+                                <VideoPlayer videoUrl={this.review.videoUrl} cover={this.review.cover} active={this.state.active} />
+                            </div>
+                            <div class="col-md-3">
+                                <h5>@Model.Name</h5>
+                                <p>
+                                    <small>Published: <CustomDate date={this.review.createdDate} /></small>
+                                </p>
+                                {this.review.reviewer &&
+                                <h6>
+                                    <a href={`/reviewer/${this.review.reviewer.id}`}>
+                                    <img class="reviewer-avatar" src="https://i.vimeocdn.com/portrait/2341828_16x16.jpg" width="30" />
+                                    @Model.Name
+                                    </a>
+                                    <span class="badge badge-primary btn-circle btn-follow" onClick={this.onFollow}>Follow</span>
+                                </h6>
+                                }
+                                <hr />
+                                <p class="description">
+                                    {this.review.description}
+                                </p>
+
+                                <div id="review-image">
+                                    <div class="review-tag" style={{ display: 'none' }}>
+                                        <a href="/tag/phone" class="badge badge-light">#phone</a>
+                                        <a href="/tag/phone" class="badge badge-light">#phone</a>
+                                        <a href="/tag/phone" class="badge badge-light">#phone</a>
+                                        <a href="/tag/phone" class="badge badge-light">#phone</a>
+                                        <a href="/tag/phone" class="badge badge-light">#phone</a>
+                                    </div>
+                                    {this.review.images && this.review.images.length !== 0 &&
+                                    <div class="review-image-list row">
+                                        <div class="col-md-12">
+                                            <h6 class="section-title">Images</h6>
+                                        </div>
+                                        {
+                                        this.review.images.map((image: IImage, index: number) => {
+                                        return (
+                                        <div key={`review-${index}`} class="col-md-4">
+                                            <a data-fancybox="gallery" href={image.url}>
+                                                <img class="review-image" src="@Model.Thumbnail" />
+                                            </a>
+                                        </div>
+                                        );
+                                        })
+                                        }
+                                    </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

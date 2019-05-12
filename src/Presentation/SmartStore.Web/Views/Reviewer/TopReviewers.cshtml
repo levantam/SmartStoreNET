@@ -1,0 +1,26 @@
+﻿@model IList<ReviewerModel>
+
+@using SmartStore.Web.Models.Reviews;
+
+@{
+    ViewBag.Title = "TopReviewers";
+    Layout = "";
+}
+<div class="top-reviewers-container" >
+    <div class="container">
+        <div class="heading-noline ">
+            <h3 class="heading-title fs-h1">@T("Homepage.TopReviewer")</h3>
+        </div>
+
+        <div class="row">
+            @foreach (var reviewer in Model)
+            {
+                <div class="col-md-2 top-reviewer-item">
+                    <a href="/reviewer/detail/@reviewer.Id">
+                        <img class="rounded-circle avatar" src="@reviewer.Avatar" />
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>

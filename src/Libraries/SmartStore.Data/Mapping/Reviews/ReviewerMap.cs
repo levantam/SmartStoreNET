@@ -8,6 +8,10 @@ namespace SmartStore.Data.Mapping.Reviews
         public ReviewerMap()
         {
             this.ToTable("Reviewer");
+            //this.HasRequired(t => t.Language)
+            //    .WithMany()
+            //    .HasForeignKey(t => t.LanguageId)
+            //    .WillCascadeOnDelete(true);
         }
     }
 }

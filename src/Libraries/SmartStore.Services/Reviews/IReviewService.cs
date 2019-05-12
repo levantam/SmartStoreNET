@@ -7,7 +7,8 @@ namespace SmartStore.Services.Reviews
     public partial interface IReviewService
     {
         IList<Review> GetAllReview();
-        IList<Review> GetAllReviewByProduct(int productId);
+        IList<Review> GetAllReviewByProduct(int productId, int page = 1, int pageSize = 20);
+        IList<Review> GetAllReviewByReviewer(int reviewerId, int page, int pageSize);
         IList<Review> GetHighLight(int size = 3);
         IList<Review> GetTopReviews(int size = 6);
 

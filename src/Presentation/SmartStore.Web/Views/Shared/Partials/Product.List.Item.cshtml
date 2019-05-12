@@ -32,7 +32,7 @@
 	@if (Model.Badges.Any())
 	{
 		@* TODO: (mc) Let user define one free badge per product in backend *@
-		<div class="art-badges">
+		<div class="art-badges" style="display: none">
 			@foreach (var badge in Model.Badges.OrderBy(x => x.DisplayOrder))
 			{
 				@* TODO: (mc) Move BS4 label/tag class definitions to art-badge.art-badge-[style] (?)  *@
@@ -102,7 +102,7 @@
         </table>
     }
 
-    @if (list.ViewMode != ProductSummaryViewMode.List)
+    @*@if (list.ViewMode != ProductSummaryViewMode.List)
     {
         Html.RenderPartial("Product.List.Item.Price", Model);
     }
@@ -110,7 +110,7 @@
     @if (list.ViewMode == ProductSummaryViewMode.List && showVariants)
     {
         Html.RenderPartial("Product.List.Item.Variants", Model);
-    }
+    }*@
 
     @if (list.ShowLegalInfo)
     {
@@ -124,7 +124,7 @@
         // close div.art-info-block
         @:</div>
 
-        <div class="art-actions-block">
+        <div class="art-actions-block" style="display: none ">
             @{
                 Html.RenderPartial("Product.List.Item.Price", Model);
                 if (showButtons)
@@ -143,7 +143,7 @@
         {
             if (showDrop)
             {
-				<div class="art-drop">
+				<div class="art-drop" style="display: none">
 					@if (showVariants) 
 					{
 						Html.RenderPartial("Product.List.Item.Variants", Model);

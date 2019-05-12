@@ -1,0 +1,126 @@
+﻿@model ReviewDetailModel
+
+@using SmartStore.Web.Models.Reviews;
+@{
+    ViewBag.Title = "Detail";
+    Layout = "_LayoutFullWidth";
+    var reviewer = Model.ReviewerModel;
+    var review = Model.ReviewModel;
+    var product = Model.ProductModel;
+    var videoId = review.VideoUrl.Replace("https://www.youtube.com/watch?v=", "");
+
+    var imageCount = product.DetailsPictureModel.PictureModels.Count;
+    var productDetailUrl = Url.RouteUrl("Product", new RouteValueDictionary { { "SeName", product.SeName } });
+}
+<div class="review-detail">
+    <div class="container video-box">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="video-player">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/@videoId?rel=0" allowfullscreen></iframe>
+                    </div>
+                    <h2 class="title">@review.Name</h2>
+                    <div class="author">
+                        From <a href="/reviewer/detail/@reviewer.Id">@reviewer.ChannelName</a> <i class="fa-validated fas fa-check-circle"></i>
+                    </div>
+                    @*TODO: show statistics*@
+                    <div class="statistics" style="display: none">
+                        <button class="btn btn-sm btn-default btn-rounded"><i class="fas fa-play"></i> 3K</button>
+                        <button class="btn btn-sm btn-default btn-rounded"><i class="fas fa-heart"></i> 399K</button>
+                        <button class="btn btn-sm btn-default btn-rounded"><i class="fas fa-blog"></i> 3K</button>
+                    </div>
+                    <div class="row review-information">
+                        <div class="col-md-12">
+                            @review.ShortDescription
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row review-detail-box">
+            <div class="col-md-12">
+                <div class="pd-tabs tabbable nav-responsive" id="pd-tabs" data-breakpoint="<md">
+                    <ul class="nav nav-tabs nav-tabs-line">
+                        <li class="nav-item">
+                            <a href="#pd-tabs-1" data-toggle="tab" data-loaded="true" class="nav-link active show">
+                                <span class="tab-caption">Review from <b>@reviewer.ChannelName</b></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#pd-tabs-2" data-toggle="tab" data-loaded="true" class="nav-link">
+                                <span class="tab-caption">Information</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#pd-tabs-3" data-toggle="tab" data-loaded="true" class="nav-link">
+                                <span class="tab-caption">Images</span>
+                                <span class="ml-2 badge badge-secondary">@imageCount</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#pd-tabs-4" data-toggle="tab" data-loaded="true" class="nav-link">
+                                <span class="tab-caption">Other Reviews</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active show" role="tabpanel" id="pd-tabs-1">
+                            @Html.Raw(review.Description)
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="pd-tabs-2">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @Html.Raw(product.FullDescription)
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="page-actions col-md-12">
+                                    <a href="@productDetailUrl" class="btn btn-sm btn-dark btn-rounded">Read more...</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="pd-tabs-3">
+                            <div class="gal-cell">
+                                <div class="gal review-photos">
+                                    @if (product.DetailsPictureModel.PictureModels.Count > 0)
+                                    {
+                                        for (int i = 0; i < product.DetailsPictureModel.PictureModels.Count; i++)
+                                        {
+                                            var picture = product.DetailsPictureModel.PictureModels[i];
+                                            <a class="fancybox photos" data-fancybox="gallery" href="@picture.FullSizeImageUrl" title="Click the image to view fullsize">
+                                                <img class="" src="@picture.ThumbImageUrl" alt="">
+                                            </a>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                            @*TODO: add more image from reviewer
+                            <h4>Review's photos</h4>*@
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="pd-tabs-4">
+                            @{ Html.RenderAction("ReviewByProduct", "Review", new { page = 1, pageSize = 10, productId = review.ProductId, except = review.Id });}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        @*<div class="row">
+                <div class="col-md-4 col-xs-4 col-sm-12">
+                    <img class="avatar rounded-circle mx-auto d-block" src="@reviewer.Avatar" width="200" />
+                    <h4>@reviewer.ChannelName</h4>
+                    <div class="actions">
+                        <button class="btn btn-sm btn-primary btn-rounded">Follow</button>
+                        <button class="btn btn-sm btn-rounded">Message</button>
+                    </div>
+                </div>
+                <div class="col-md-8 col-xs-8 col-sm-12">
+                    Review Detail
+                </div>
+            </div>*@
+
+    </div>
+</div>

@@ -268,6 +268,7 @@
     <Compile Include="Controllers\InstallController.cs" />
     <Compile Include="Controllers\PollController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
+    <Compile Include="Controllers\ReviewerController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\TaskSchedulerController.cs" />
     <Compile Include="Controllers\ThemeController.cs" />
@@ -335,6 +336,7 @@
     <Compile Include="Models\Catalog\ProductAskQuestionModel.cs" />
     <Compile Include="Models\Catalog\ProductSummaryModel.cs" />
     <Compile Include="Models\Catalog\ManufacturerOverviewModel.cs" />
+    <Compile Include="Models\Reviews\ReviewerModel.cs" />
     <Compile Include="Models\Reviews\ReviewModel.cs" />
     <Compile Include="Models\Search\SearchBoxModel.cs" />
     <Compile Include="Models\Catalog\ProductsByTagModel.cs" />
@@ -430,6 +432,7 @@
     <Compile Include="Models\ShoppingCart\ShoppingCartModel.cs" />
     <Compile Include="Models\Topics\TopicModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\Reviews\ReviewDetailModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="404.html" />
@@ -1839,6 +1842,12 @@
     <Content Include="Views\Review\TopReviews.cshtml" />
     <Content Include="Views\Review\HighLights.cshtml" />
     <Content Include="Views\Review\Partials\ReviewItemThumbnail.cshtml" />
+    <Content Include="Views\Shared\Layouts\_LayoutFullWidth.cshtml" />
+    <Content Include="Views\Reviewer\TopReviewers.cshtml" />
+    <Content Include="Views\Reviewer\Detail.cshtml" />
+    <Content Include="Views\Review\ReviewsByReviewer.cshtml" />
+    <Content Include="Views\Review\Detail.cshtml" />
+    <Content Include="Views\Shared\Partials\_ListEmptyMessage.cshtml" />
     <None Include="Web.EFMigrations.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

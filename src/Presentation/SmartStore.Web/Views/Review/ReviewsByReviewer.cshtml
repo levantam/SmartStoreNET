@@ -8,13 +8,21 @@
 <div class="row">
     @foreach (var review in Model)
     {
-        <div class="col-md-4 col-sm-6">
+        <div class="col-md-6 col-sm-12">
             @{ Html.RenderPartial("ReviewItemThumbnail", review);}
         </div>
     }
 </div>
-
-@if (Model == null || Model.Count() == 0)
+@if (Model.Count() != 0)
 {
-    Html.RenderPartial("_ListEmptyMessage", "There has no related review" );
+    <div class="row">
+        <div class="page-actions col-md-12">
+            <button class="btn btn-sm btn-dark btn-rounded">Load more...</button>
+        </div>
+    </div>
+} else
+{
+
 }
+
+

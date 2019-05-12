@@ -56,20 +56,6 @@
                         @{ Html.SmartStore().Menu().Name("FooterInformation").Template("LinkList").Render(); }
 					</div>
 				</nav>*@
-                <h4>© 2017-2018</h4>
-                @if (Model.ShowSocialLinks && socialLinks.Any())
-                {
-                <div class="row">
-                    <div class="col">
-                        @foreach (var link in socialLinks)
-                        {
-                            <a style="border: none" href="@link.Item1" target="_blank" class="btn x-btn-@(invserseFooter ? "clear" : "secondary") btn-circle btn-social btn-brand-@link.Item2">
-                                <i class="fab fa-@link.Item2"></i>
-                            </a>
-                        }
-                    </div>
-                </div>
-                }
 			</div>
 
 			<div class="col-md-3">
@@ -181,6 +167,18 @@
 					@Html.Raw(Model.SmartStoreHint)
 				</div>
 			}*@
+
+            @if (Model.ShowSocialLinks && socialLinks.Any())
+                {
+                <div class="col pb-1 pb-sm-0">
+					@foreach (var link in socialLinks)
+                        {
+                            <a style="border: none; width: 25px; height: 25px" href="@link.Item1" target="_blank" class="btn x-btn-@(invserseFooter ? "clear" : "secondary") btn-circle btn-social btn-brand-@link.Item2">
+                                <i class="fab fa-@link.Item2"></i>
+                            </a>
+                        }
+				</div>
+                }
 
 			<div class="col text-sm-right">
 				@T("Content.CopyrightNotice", DateTime.Now.Year.ToString(), Model.StoreName)

@@ -1,0 +1,54 @@
+﻿@model ReviewerModel
+
+@using SmartStore.Web.Models.Reviews;
+@{
+    ViewBag.Title = "Detail";
+    Layout = "_Layout";
+    int currentPage = 1;
+}
+
+<div class="row reviewer-detail">
+    <div class="col-md-4 col-xs-4 col-sm-12">
+        <div class="information rounded">
+            <img class="avatar rounded-circle mx-auto d-block" src="@Model.Avatar" width="150" />
+            <h5 class="channel-name">@Model.ChannelName <i class="fa-validated fas fa-check-circle"></i></h5> 
+            <p class="alias"> @@@Model.ChannelUrl</p>
+            <div class="action">
+                <button class="btn btn-sm btn-primary btn-rounded">Follow</button>
+                <button class="btn btn-sm btn-rounded">Message</button>
+            </div>
+            <div class="detail-list">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Rating
+                        <span class="badge badge-pill">@Model.Rating</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Reviews
+                        <span class="badge  badge-pill">598</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Following
+                        <span class="badge badge-pill">1</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="categories">
+                <a href="/category/detail/1"><span class="badge badge-pill">#Phone</span></a>
+                <a href="/category/detail/1"><span class="badge badge-pill">#Car</span></a>
+                <a href="/category/detail/1"><span class="badge badge-pill">#Motobike</span></a>
+            </div>
+            <div class="about">
+                <h6>About</h6>
+                <div>
+                    @Model.Description
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 col-xs-8 col-sm-12">
+        @{ Html.RenderAction("ReviewsByReviewer", "Review", new { id = Model.Id, page = currentPage });}
+    </div>
+
+</div>
+

@@ -1,17 +1,25 @@
 ﻿@{
-	Layout = "_Layout";
-	Html.AddBodyCssClass("home");
+    Layout = "_LayoutFullWidth";
+    Html.AddBodyCssClass("home");
 }
-
 <div class="page home-page">
     <div class="page-body">
-		@{
+        @{
             Html.RenderWidget("home_page_top");
 
-            Html.RenderAction("TopicBlock", "Topic", new { systemName = "HomePageText", isLead = true });
-            Html.RenderWidget("home_page_after_intro");
+            <div class="home-welcome" style="min-height: 250px;color: white;background-image: url('https://a5.behance.net/7cfb6f343675d87e10154d935c42ab8de8e8c470/img/site/1x/cta-header.jpg');">
+                @{
+                    Html.RenderAction("TopicBlock", "Topic", new { systemName = "HomePageText", isLead = true });
+                    Html.RenderWidget("home_page_after_intro");
+                }
+            </div>
 
-            Html.RenderAction("TopReviews", "Review", new { productId = 1 });
+            <div class="container">
+                @{ Html.RenderAction("TopReviews", "Review", new { productId = 1 });}
+                @{ Html.RenderWidget("home_page_after_intro");}
+            </div>
+
+            Html.RenderAction("TopReviewers", "Reviewer", new { productId = 1 });
             Html.RenderWidget("home_page_after_intro");
 
             //Html.RenderAction("HomepageCategories", "Catalog");
@@ -23,8 +31,10 @@
             Html.RenderAction("HomepageBestSellers", "Catalog");
             Html.RenderWidget("home_page_after_bestsellers");
 
-            Html.RenderAction("HomepageManufacturers", "Catalog");
-            Html.RenderWidget("home_page_after_manufacturers");
+            @*<div class="container">
+                @{Html.RenderAction("HomepageManufacturers", "Catalog"); }
+                @{Html.RenderWidget("home_page_after_manufacturers");}
+            </div>*@
 
             Html.RenderAction("PopularProductTags", "Catalog", new { area = "" });
             Html.RenderWidget("home_page_after_tags");
@@ -35,10 +45,10 @@
             Html.RenderAction("HomePagePolls", "Poll");
             Html.RenderWidget("home_page_after_polls");
 
-			@* TODO: (mc) find more intelligent way of rendering RecentlyViewedProductsBlock globally *@
+            @* TODO: (mc) find more intelligent way of rendering RecentlyViewedProductsBlock globally *@
             Html.RenderAction("RecentlyViewedProductsBlock", "Catalog", new { area = "" });
 
             Html.RenderWidget("home_page_bottom");
-		}
+        }
     </div>
 </div>

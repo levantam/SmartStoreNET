@@ -276,9 +276,10 @@ namespace SmartStore.Web.Framework
 
             // Custom by IRev
             builder.RegisterType<ReviewService>().As<IReviewService>().InstancePerRequest();
+            builder.RegisterType<ReviewerService>().As<IReviewerService>().InstancePerRequest();
         }
 
-		protected override void AttachToComponentRegistration(IComponentRegistry componentRegistry, IComponentRegistration registration)
+        protected override void AttachToComponentRegistration(IComponentRegistry componentRegistry, IComponentRegistration registration)
 		{
 			// Look for first settable property of type "ICommonServices" and inject
 			var servicesProperty = FindCommonServicesProperty(registration.Activator.LimitType);

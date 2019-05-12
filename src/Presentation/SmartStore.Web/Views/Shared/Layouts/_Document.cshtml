@@ -43,15 +43,43 @@
 	<!--Powered by SmartStore.NET - https://www.smartstore.com-->
 </head>
 <body class="@Html.BodyCssClass()" @(Html.BodyId())>
-	@{ Html.RenderZone("start"); }
-	@RenderBody()
-	@{ Html.RenderZone("aftercontent"); }
+    @{ Html.RenderZone("start"); }
+    @RenderBody()
+    @{ Html.RenderZone("aftercontent"); }
 
-	@Html.SmartCssFiles(this.Url, ResourceLocation.Foot)
-	@Html.SmartScripts(this.Url, ResourceLocation.Foot)
-	@Html.LocalizationScript(WorkContext.WorkingLanguage.UniqueSeoCode, "~/Content/vendors/select2/js/i18n", "*.js", null)
-	@Html.LocalizationScript(WorkContext.WorkingLanguage.UniqueSeoCode, "~/Content/vendors/moment/locale", "*.js", null)
+    @Html.SmartCssFiles(this.Url, ResourceLocation.Foot)
+    @Html.SmartScripts(this.Url, ResourceLocation.Foot)
+    @Html.LocalizationScript(WorkContext.WorkingLanguage.UniqueSeoCode, "~/Content/vendors/select2/js/i18n", "*.js", null)
+    @Html.LocalizationScript(WorkContext.WorkingLanguage.UniqueSeoCode, "~/Content/vendors/moment/locale", "*.js", null)
 
-	@{ Html.RenderZone("end"); }
+    @*<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>*@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.0.0/dist/lazyload.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var lazyLoadInstance = new LazyLoad({
+                elements_selector: ".lazy"
+            });
+            if (lazyLoadInstance) {
+                lazyLoadInstance.update();
+            }
+
+            $().fancybox({
+                selector: '.fancybox',
+                helpers: {
+                    overlay: {
+                        opacity: 1, // or the opacity you want 
+                        css: { 'background-color': '#000000' } // or your preferred hex color value
+                    } // overlay 
+                } //
+            });
+        });
+    </script>
+    @{ Html.RenderZone("end"); }
+
 </body>
 </html>

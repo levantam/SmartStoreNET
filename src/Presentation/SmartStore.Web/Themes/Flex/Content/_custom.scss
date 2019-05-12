@@ -2,3 +2,244 @@
 // Customize the child theme here with css overrides
 // or new selectors (for theme developers)
 // --------------------------------------------------
+/*Common components*/
+.btn {
+    &.btn-rounded {
+        border-radius: 50px;
+        min-width: 100px;
+    }
+}
+.page-actions {
+    text-align: center;
+    padding: 10px;
+    margin: 20px 0;
+    .btn {
+        background: white;
+        color: gray;
+    }
+}
+.fa-validated {
+    color: blue;
+}
+/*Review list*/
+.main-review-item {
+    margin-bottom: 20px;
+    padding: 5px;
+    border: none;
+    background: white;
+    box-shadow: 0 4px 10px #e4e4e3;
+    border: 1px solid white;
+    opacity: 0.8;
+
+    &:hover {
+        opacity: 1;
+        border-color: #e4e4e3;
+    }
+
+    a {
+        color: black;
+
+        &:hover {
+            color: blueviolet;
+        }
+    }
+
+    .image-wrapper {
+        position: relative;
+
+        .wrapper-cover {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            color: orange;
+            text-align: center;
+            font-size: 2em;
+            cursor: pointer;
+
+            i {
+                margin-top: 70px;
+            }
+        }
+
+        &:hover {
+            .wrapper-cover {
+                display: inherit;
+            }
+        }
+    }
+
+    .review-image {
+        cursor: pointer;
+    }
+
+    .review-body {
+        padding: 5px;
+        font-size: 0.8em;
+
+        .review-item-name {
+            line-height: 1.4em;
+            height: 50px;
+        }
+
+        img {
+            display: inline;
+            margin-right: 5px;
+            border-radius: 50%;
+        }
+    }
+
+    .review-item-footer {
+        color: gray;
+    }
+}
+/*Custom Tab*/
+.pd-tabs {
+    .nav-tabs {
+        margin-top: 20px;
+        /*background: #e4e4e3;
+        padding: 3px;*/
+    }
+}
+.fancybox-stage {
+    background: white;
+}
+.list {
+    min-height: 100px;
+    color: gray;
+    font-size: 2em;
+    padding: 20px 0;
+    &.list-empty {
+        text-align: center;
+    }
+}
+/*HOME*/
+
+/*top reviewers*/
+.top-reviewers-container {
+    background-image: url("http://cdn.dribbble.com/assets/company/stars-30044b4b1eec91361509dbe93cdc3baed4cced88d0edb994574a7a1f13ec0bc5.png");
+    background-color: rgb(33, 34, 64);
+    color: white;
+    margin-bottom: 40px;
+    padding: 20px 0 40px;
+    min-height: 300px;
+    font-weight: bold;
+    
+
+    .heading-noline {
+        padding: 20px 0;
+        margin: 10px 0 !important;
+
+        .heading-title {
+            background-color: transparent;
+        }
+    }
+
+    .top-reviewer-item {
+        cursor: pointer;
+
+        &:hover {
+            img.avatar {
+                border-color: rgba(orange, 1);
+            }
+        }
+
+        img.avatar {
+            width: 100%;
+            height: 100%;
+            border: 5px solid transparent;
+            transition: all linear 0.5s;
+        }
+    }
+}
+
+/*Reviewer detail*/
+.reviewer-detail {
+    .information {
+        padding: 10px;
+        background: white;
+        border: 1px solid #e4e4e3;
+        box-shadow: 0 4px 10px #e4e4e3;
+        text-align: center;
+        border-top: 3px solid orange;   
+
+        img.avatar {
+            margin-bottom: 20px;
+        }
+
+        .channel-name {
+        }
+
+        .alias {
+            color: gray;
+        }
+
+        .detail-list {
+            margin: 10px 0;
+        }
+
+        .about {
+            text-align: justify;
+            padding: 10px;
+            color: gray;
+        }
+    }
+}
+/*REVIEW DETAIL*/
+.review-detail {
+    padding: 20px;
+
+    .video-box {
+        padding: 20px;
+        min-height: 400px;
+        text-align: center;
+
+        .title {
+            margin: 20px 0;
+        }
+
+        .author {
+            color: gray !important;
+
+            a {
+                font-weight: bold;
+                color: gray;
+            }
+        }
+
+        .statistics {
+            margin: 20px 0;
+        }
+
+        .review-information {
+            text-align: justify;
+            margin: 10px 0;
+        }
+    }
+
+    .review-detail-box {
+        text-align: left;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    .review-photos {
+        .photos {
+            padding: 5px;
+            &:hover {
+                img {
+                    opacity: 1;
+                    cursor: pointer;
+                }
+            }
+
+            img {
+                opacity: 0.7;
+                min-width: 50px;
+            }
+        }
+    }
+}

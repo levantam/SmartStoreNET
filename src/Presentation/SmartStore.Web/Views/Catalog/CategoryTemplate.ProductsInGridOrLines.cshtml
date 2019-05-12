@@ -56,13 +56,13 @@
 		}
 	</div>
 }
-
-@section left {
+@*TODO: section defined*@
+@*@section left {
 	@{
         Html.SmartStore().Menu().Name("Main").Template("Categories").Render();
 		Html.RenderAction("Filters", "Search", new { model = Model });
 	}
-}
+}*@
 
 <div class="page category-page">
     <div class="page-title">

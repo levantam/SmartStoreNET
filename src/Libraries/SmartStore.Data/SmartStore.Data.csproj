@@ -676,6 +676,14 @@
     <Compile Include="Migrations\201905010828396_changeTableName.Designer.cs">
       <DependentUpon>201905010828396_changeTableName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905110732477_edit-reviewer.cs" />
+    <Compile Include="Migrations\201905110732477_edit-reviewer.Designer.cs">
+      <DependentUpon>201905110732477_edit-reviewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905120401020_add-review-language.cs" />
+    <Compile Include="Migrations\201905120401020_add-review-language.Designer.cs">
+      <DependentUpon>201905120401020_add-review-language.cs</DependentUpon>
+    </Compile>
     <Compile Include="ObjectContextBase.SaveChanges.cs" />
     <Compile Include="Setup\Builder\ActivityLogTypeMigrator.cs" />
     <Compile Include="Setup\Builder\PermissionMigrator.cs" />
@@ -1208,6 +1216,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905010828396_changeTableName.resx">
       <DependentUpon>201905010828396_changeTableName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905110732477_edit-reviewer.resx">
+      <DependentUpon>201905110732477_edit-reviewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905120401020_add-review-language.resx">
+      <DependentUpon>201905120401020_add-review-language.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sql\Indexes.sql" />
     <EmbeddedResource Include="Sql\StoredProcedures.sql" />
