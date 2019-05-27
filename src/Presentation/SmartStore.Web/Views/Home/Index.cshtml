@@ -14,7 +14,7 @@
                 }
             </div>
 
-            <div class="container">
+            <div class="container" id="top-reviewer">
                 @{ Html.RenderAction("TopReviews", "Review", new { productId = 1 });}
                 @{ Html.RenderWidget("home_page_after_intro");}
             </div>
@@ -39,6 +39,20 @@
             Html.RenderAction("PopularProductTags", "Catalog", new { area = "" });
             Html.RenderWidget("home_page_after_tags");
 
+
+            <div class="container">
+                <div class="row intro-box text-center">
+                    <div class="col-md-12">
+                        @{
+                            Html.RenderAction("TopicBlock", "Topic", new { systemName = "HomePageJoinText", isLead = true });
+                            Html.RenderWidget("home_page_after_intro");
+                        }
+                        <a href="/reviewer/register" class="btn btn-primary btn-rounded">Become a reviewer</a>
+                    </div>
+
+                </div>
+            </div>
+
             //Html.RenderAction("HomePageNews", "News");
             //Html.RenderWidget("home_page_after_news");
 
@@ -52,3 +66,9 @@
         }
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $('#content').css({"margin-top": 0})
+    })
+</script>

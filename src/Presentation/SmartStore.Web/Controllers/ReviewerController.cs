@@ -38,6 +38,10 @@ namespace SmartStore.Web.Controllers
             }
             return View(new ReviewerModel(reviewer));
         }
+        public ActionResult Register()
+        {
+            return View();
+        }
 
     }
 }

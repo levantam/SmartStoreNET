@@ -18,7 +18,7 @@ namespace SmartStore.Core.Domain.Reviews
         }
         private Product _product;
         private Reviewer _reviewer;
-        private int _reviewerId;
+        // private int _reviewerId;
         private ICollection<ReviewImage> _reviewImages;
 
         [DataMember]

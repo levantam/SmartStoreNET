@@ -8,15 +8,15 @@
 
 @{ Html.RenderWidget("header_menu_top"); }
 
-<nav class="menubar" style="display: none">
-    <nav class="menubar-group ml-0">
+<nav class="menubar" style="">
+    @*<nav class="menubar-group ml-0">
         @{ 
 			Html.RenderAction("LanguageSelector", "Common");
 			Html.RenderAction("CurrencySelector", "Common");
         }
-    </nav>
+    </nav>*@
 
-	<nav class="menubar-group ml-auto">
+	<nav class="menubar-group ml-auto" style="display: none">
 
 		@{ Html.RenderWidget("header_menu_before"); }
 
@@ -36,7 +36,7 @@
 		}
 	</nav>
 
-    <nav class="menubar-group menubar-group--special">
+    <nav class="menubar-group menubar-group--special" style="display: none">
         @if (Model.NewsEnabled)
         {
             <a class="menubar-link" href="@Url.RouteUrl("NewsArchive")">
@@ -62,7 +62,7 @@
     {
         <nav id="menubar-my-account" class="menubar-group">
             <div class="dropdown">
-                <a class="menubar-link" @(Model.IsAuthenticated ? "data-toggle=dropdown" : "") aria-haspopup="true" aria-expanded="false" href="@accountUrl" rel="nofollow">
+                <a class="menubar-link btn btn-rounded btn-sm" @(Model.IsAuthenticated ? "data-toggle=dropdown" : "") aria-haspopup="true" aria-expanded="false" href="@accountUrl" rel="nofollow">
                     <i class="@(Model.IsAuthenticated ? "fas" : "fal") fa-user-circle menubar-icon"></i>
 
                     @if (Model.IsAuthenticated)

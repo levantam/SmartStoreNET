@@ -48,6 +48,9 @@
 		<div class="row sm-gutters">
 
 			<div class="col-md-3">
+                @{
+                    Html.RenderAction("Logo", "Common", new { area = "" });
+                }
 				@*<nav class="footer-links nav-collapsible">
 					<h4 class="footer-title nav-toggler collapsed" data-toggle="collapse" data-target="#footer-info" aria-controls="footer-info" aria-expanded="false">
                         @T("Footer.Info")

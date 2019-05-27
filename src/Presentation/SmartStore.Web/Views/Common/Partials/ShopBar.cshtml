@@ -3,24 +3,28 @@
 @using SmartStore.Web.Models.Common;
 
 <div class="shopbar">
-	<div class="shopbar-col-group shopbar-col-group-brand">
-		<!-- LOGO -->
-		<div class="shopbar-col shop-logo">
-			@{
-				Html.RenderAction("Logo", "Common", new { area = "" });
-			}
-		</div>
+    <div class="shopbar-col-group shopbar-col-group-brand">
+        <!-- LOGO -->
+        <div class="shopbar-col shop-logo">
+            @{
+                Html.RenderAction("Logo", "Common", new { area = "" });
+            }
+        </div>
 
-		<!-- SEARCH -->
-		<div class="shopbar-col shopbar-search" style="max-width: 500px;">
-			@{
-				Html.RenderAction("SearchBox", "Search");
-			}
-		</div>
-	</div>
+        <!-- SEARCH -->
+        <div class="shopbar-col shopbar-search" style="max-width: 500px">
+            @{
+                Html.RenderAction("SearchBox", "Search");
+            }
+        </div>
 
-	<div class="shopbar-col-group shopbar-col-group-tools">
-		<!-- TOOLS -->
-		@*@{ Html.RenderPartial("ShopBar.Tools", Model); }*@
-	</div>
+    </div>
+
+    <div class="shopbar-col-group shopbar-col-group-tools">
+        @{
+            Html.RenderAction("TopBar", "Common", new { area = "" });
+        }
+        <!-- TOOLS -->
+        @*@{ Html.RenderPartial("ShopBar.Tools", Model); }*@
+    </div>
 </div>

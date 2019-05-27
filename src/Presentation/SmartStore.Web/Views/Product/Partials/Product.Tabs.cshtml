@@ -27,13 +27,17 @@
 				.Selected(String.IsNullOrWhiteSpace(Model.FullDescription));
 	}
 
-	if (Model.DisplayProductReviews)
+    // Render reviews by product
+
+    Html.RenderAction("ReviewByProduct", "Review", new { page = 1, pageSize = 9, productId = Model.Id, except = Model.Id });
+
+	@*if (Model.DisplayProductReviews)
 	{
 		x.Add().Text(@T("Reviews"))
 				.Content(TabReviews())
 				.Badge(Model.ReviewCount.ToString(), Model.ReviewCount > 0 ? BadgeStyle.Warning : BadgeStyle.Secondary, true)
 				.Selected(String.IsNullOrWhiteSpace(Model.FullDescription) && String.IsNullOrWhiteSpace(specificationAttributes));
-	}
+	}*@
 
 	// Generate an event
 	EngineContext.Current.Resolve<IEventPublisher>().Publish(new TabStripCreated(x, "product-detail", this.Html, this.Model));

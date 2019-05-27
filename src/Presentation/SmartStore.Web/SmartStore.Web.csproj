@@ -1848,6 +1848,7 @@
     <Content Include="Views\Review\ReviewsByReviewer.cshtml" />
     <Content Include="Views\Review\Detail.cshtml" />
     <Content Include="Views\Shared\Partials\_ListEmptyMessage.cshtml" />
+    <Content Include="Views\Reviewer\Register.cshtml" />
     <None Include="Web.EFMigrations.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

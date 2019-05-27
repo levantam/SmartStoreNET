@@ -115,8 +115,9 @@
             function expandBox() {
                 if (box.data('origin') === 'Search/Search') {
                     var logoWidth = logo.width();
-                    $('body').addClass('search-focused');
-                    logo.css('margin-left', (logoWidth * -1) + 'px');
+                    // TODO disable transition when focusing
+                    //$('body').addClass('search-focused');
+                    //logo.css('margin-left', (logoWidth * -1) + 'px');
 
                     if (!_.str.isBlank(dropBody.text())) {
                         logo.one(Prefixer.event.transitionEnd, function (e) {

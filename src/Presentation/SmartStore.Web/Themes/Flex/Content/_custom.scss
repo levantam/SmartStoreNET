@@ -94,6 +94,16 @@
         color: gray;
     }
 }
+.block .block-title {
+    border-bottom: none;
+}
+#footer {
+    border: none;
+    font-size: 0.9em;
+    .footer-main-wrapper {
+        font-size: 0.8em !important;
+    }
+}
 /*Custom Tab*/
 .pd-tabs {
     .nav-tabs {
@@ -114,7 +124,27 @@
         text-align: center;
     }
 }
+.intro-box {
+    padding: 20px 0;
+}
 /*HOME*/
+.home-page {
+    #top-reviewer {
+        padding: 50px 0;
+
+        .heading-title {
+            margin-bottom: 30px;
+        }
+    }
+    .topic-html-content {
+        margin-top: 0px !important;
+    }
+}
+.menubar {
+    a{
+        color: gray;
+    }
+}
 
 /*top reviewers*/
 .top-reviewers-container {
@@ -125,7 +155,7 @@
     padding: 20px 0 40px;
     min-height: 300px;
     font-weight: bold;
-    
+
 
     .heading-noline {
         padding: 20px 0;

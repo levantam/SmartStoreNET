@@ -58,7 +58,7 @@
         
         @*<li class="divider"></li>*@
 
-        @if (Model.WishlistEnabled)
+        @*@if (Model.WishlistEnabled)
         {
             <a class="dropdown-item" href="@Url.RouteUrl("Wishlist")">
                 <i class="fal fa-heart fa-fw"></i>
@@ -73,7 +73,7 @@
 				<span>@T("ShoppingCart")</span> 
 				<span class="cart-qty badge badge-success @(Model.ShoppingCartItems > 0 ? "label-success" : "d-none")">@Model.ShoppingCartItems</span>
 			</a>
-        }
+        }*@
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="@Url.RouteUrl("Logout")" rel="nofollow">
             <i class="fal fa-sign-out-alt fa-fw"></i>
